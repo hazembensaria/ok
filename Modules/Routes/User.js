@@ -326,7 +326,9 @@ route.put("/changephoto" ,checkauth,multer({storage : storage}).single('image'),
     Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
         console.log('picts updates')})
     User.updateOne({_id:id},{$set:{imagepath : imagepath}}).then(result=>{
-        console.log("res"+result)}).catch(err=>{
+        console.log("res"+result)
+        res.send(imagepath)
+    }).catch(err=>{
         console.log('ici c l erreure'+err)
     })
 })
