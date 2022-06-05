@@ -14,5 +14,5 @@ server.use("/" , (req ,res , next)=>{
 })
 server.use("/" , (req, res)=>{
    console.log("sddfg")
-   res.send('welcom hazem ben saria') 
+   res.send('welcom hazem ben saria ok ') 
 })
