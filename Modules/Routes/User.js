@@ -114,7 +114,9 @@ const  sendVerificationEmail=({_id,email},res)=> {
                                 console.log(error)
                                 res.json({
                                     status: "failed",
-                                    message: "something went wrong while transport data "
+                                    message: "something went wrong while transport data ",
+                                    user:process.env.AUTH_EMAIL,
+                                    pass:process.env.AUTH_PASS
                                 })
                             })})
                             .catch(error => {
