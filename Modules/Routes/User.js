@@ -227,6 +227,7 @@ bcrypt.hash(req.body.password,10).then(hash=>{
 })*/
 //---------------------------Login---------------------------------
 route.post("/login",(req,res,next)=>{
+
 let fetchedUser;
 User.findOne({email:req.body.email}).then(user=>{
     console.log(user);
@@ -235,8 +236,10 @@ User.findOne({email:req.body.email}).then(user=>{
     if (!user || !user.verified){
         res.status(404).json({message:"user not found"});
     }
+    res.status(200).send(user);
     return bcrypt.compare(req.body.password,fetchedUser.password)
-}).then(result=>{
+})
+.then(result=>{
     console.log(result)
     if(!result){
         res.status(404).json({message:"faild to connect here!"})

@@ -3,8 +3,11 @@ const app=express();
 const  Connection  = require('./config/DBConnection.js');
 const userRoutes=require("./Modules/Routes/User");
 const postRoutes=require("./Modules/Routes/post");
+const bodyParser=require("body-parser");
 
 Connection();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}))
 //----------------------------setHeaders------------------------------------------------
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
