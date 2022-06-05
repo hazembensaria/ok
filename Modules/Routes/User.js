@@ -1,5 +1,5 @@
 
-require("dotenv").config();
+
 
 const express=require("express");
 const route=express.Router();
@@ -77,14 +77,14 @@ route.post('/signUp',(req,res,next)=>{
 
 //--------------------------send verification mail method ---------------
 const  sendVerificationEmail=({_id,email},res)=> {
-    const cuurentUrl = "http://localhost:8000/";
+    const cuurentUrl = "https://oksecondetime.herokuapp.com/";
     const uniqueString =  _id;//maybe worng na7i el faza eli 3malha hoia nta3 el uuid deja mat9al9ch blch biha
     const mailOptions = {
         form: process.env.AUTH_EMAIL,
         to: email,
         subject: "verify your email",
         html: `<p>verify your email to complete the signup and login into your account</p>
-    <p>this link <b>expire in 6 hours</b></p><p>press<a href=${cuurentUrl + "api/user/verify/" + _id +"/"+ uniqueString}>here</a> to proceed</p>`
+    <p>this link <b>expire in 6 hours</b></p><p>press<a href=${cuurentUrl + "user/verify/" + _id +"/"+ uniqueString}>here</a> to proceed</p>`
     }
 
     const salRounds = 10;
@@ -236,7 +236,7 @@ User.findOne({email:req.body.email}).then(user=>{
     if (!user || !user.verified){
         res.status(404).json({message:"user not found"});
     }
-    
+
     return bcrypt.compare(req.body.password,fetchedUser.password)
 })
 .then(result=>{
