@@ -12,7 +12,12 @@ app.use((req,res,next)=>{
 
 
 app.get("/",(req ,res)=>{
-    res.send('you are connected')
+    const obj={
+        name :"hazem",
+        age: 21,
+        isvalid: true
+    }
+    res.send(obj)
     console.log("helo")})
 
 //------------------------
