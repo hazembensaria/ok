@@ -1,18 +1,7 @@
-const express = require("express")
-const server = express()
 
-PORT  = process.env.PORT|| 5000
-server.listen(PORT , _=>{console.log(`http://localhost:${PORT}`)
-
-})
-
-server.use("/" , (req ,res , next)=>{
-    
-    console.log("hazem")
- 
-    next()
-})
-server.use("/" , (req, res)=>{
-   console.log("sddfg")
-   res.send('welcom hazem ben saria ok ') 
-})
+const app = require("./app")
+const http = require("http")
+PORT  = process.env.PORT ||  5000
+app.set("PORT",PORT)
+const server=http.createServer(app)
+server.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}...`))
