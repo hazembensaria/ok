@@ -2,6 +2,7 @@ const express = require("express")
 const app=express();
 const  Connection  = require('./config/DBConnection.js');
 const userRoutes=require("./Modules/Routes/User");
+const postRoutes=require("./Modules/Routes/post");
 
 Connection();
 //----------------------------setHeaders------------------------------------------------
@@ -27,6 +28,7 @@ app.get("/",(req ,res)=>{
 
 //-----------------------------userRoute----------------
 app.use("/user",userRoutes);
+app.use("/post",postRoutes);
     
 
 //------------------------
