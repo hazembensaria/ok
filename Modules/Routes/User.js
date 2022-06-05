@@ -319,11 +319,11 @@ route.get("",checkauth , (req ,res)=>{
 })
 
 route.put("/changephoto" ,checkauth, (req ,res)=>{
-    const url = req.protocol+'://'+req.get('host') ;
-    console.log(url)
-    const id = req.userData.userId;
-    const imagepath = url + '/images/'+req.file.filename;
-    res.send(imagepath)
+    // const url = req.protocol+'://'+req.get('host') ;
+    // console.log(url)
+    // const id = req.userData.userId;
+    // const imagepath = url + '/images/'+req.file.filename;
+    res.send('imagepath')
     // console.log(imagepath)
     // Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
     //     console.log('picts updates')})
