@@ -17,6 +17,7 @@ const nodemailer=require("nodemailer")
 const {v4:uuidv4}=require("uuid");
 
 const path=require("path");
+const res = require("express/lib/response");
 
 // multer stuff
 const mime_type_map ={
@@ -325,10 +326,14 @@ route.put("/changephoto" ,checkauth,multer({storage : storage}).single('image'),
     console.log(imagepath)
     Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
         console.log('picts updates')})
+        .catch(err=>{
+            res.send('err1'+err)
+        })
     User.updateOne({_id:id},{$set:{imagepath : imagepath}}).then(result=>{
         console.log("res"+result)
-        res.send(imagepath)
+     
     }).catch(err=>{
+        res.send('err2'+err)
         console.log('ici c l erreure'+err)
     })
 })
