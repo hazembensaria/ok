@@ -155,18 +155,18 @@ route.get("/verify/:userId/:uniqueString",(req,res)=>{
                             User.deleteOne({_id:userId})
                                 .then(()=>{
                                     let message= "user deleted please sign up again  ";
-                                    res.redirect(`/api/user/verified?error=true&message=${message}`)
+                                    res.redirect(`/user/verified?error=true&message=${message}`)
                                 })
                                 .catch(error=>{
                                 console.log("error:can't delet user  "+error);
                                     let message= "clearing user with unique string failed ";
-                                    res.redirect(`/api/user/verified?error=true&message=${message}`)
+                                    res.redirect(`/user/verified?error=true&message=${message}`)
                             })
                         })
                         .catch((error)=>{
                             console.log(error);
                             let message= "An error occured while clearing expired user verification record ";
-                            res.redirect(`/api/user/verified?error=true&message=${message}`)
+                            res.redirect(`/user/verified?error=true&message=${message}`)
                         })
 
                 }else {
@@ -183,27 +183,27 @@ route.get("/verify/:userId/:uniqueString",(req,res)=>{
                                     })
                                     .catch(error=>{
                                         let message= "an error occured while updating user to verified";
-                                        res.redirect(`/api/user/verified?error=true&message=${message}`)
+                                        res.redirect(`/user/verified?error=true&message=${message}`)
                                     })
                             }else{
                                 let message= "invalid validation of unique string . check your inbox";
-                                res.redirect(`/api/user/verified?error=true&message=${message}`)
+                                res.redirect(`/user/verified?error=true&message=${message}`)
                             }
                         })
                         .catch(error=>{
                             let message= "an error occured while comparing the unique string";
-                            res.redirect(`/api/user/verified?error=true&message=${message}`)
+                            res.redirect(`/user/verified?error=true&message=${message}`)
                         })
                 }
             }else {
                 let message= "account doesn't exist or has been verified already";
-                res.redirect(`/api/user/verified?error=true&message=${message}`)
+                res.redirect(`/user/verified?error=true&message=${message}`)
             }
         })
         .catch(error=>{
             console.log(error)
             let message= "An error occured while checking for existing user";
-            res.redirect(`/api/user/verified?error=true&message=${message}`)
+            res.redirect(`/user/verified?error=true&message=${message}`)
 
         });
 })
