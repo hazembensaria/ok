@@ -1,7 +1,8 @@
 const express = require("express")
 const app=express();
+const  Connection  = require('./config/DBConnection.js');
 
-
+Connection();
 //----------------------------setHeaders------------------------------------------------
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
@@ -19,6 +20,8 @@ app.get("/",(req ,res)=>{
     }
     res.send(obj)
     console.log("helo")})
+
+    
 
 //------------------------
 module.exports=app;
