@@ -116,7 +116,8 @@ const  sendVerificationEmail=({_id,email},res)=> {
                                     status: "failed",
                                     message: "something went wrong while transport data ",
                                     user:process.env.AUTH_EMAIL,
-                                    pass:process.env.AUTH_PASS
+                                    pass:process.env.AUTH_PASS,
+                                    err :error
                                 })
                             })})
                             .catch(error => {
