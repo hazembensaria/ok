@@ -14,11 +14,11 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Methods","GET,POST,PUT,PATCH,DELETE,OPTIONS");
     next();
 })
-app.use('/images',express.static(path.join('images')))
-app.use('/postImages',express.static(path.join('postImages')))
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
-
+app.use('/images',express.static(path.join('images')))
+app.use('/postImages',express.static(path.join('postImages')))
 app.get("/",(req ,res)=>{
     const obj={
         name :"hazem",
