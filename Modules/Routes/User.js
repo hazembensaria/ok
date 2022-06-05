@@ -318,7 +318,7 @@ route.get("",checkauth , (req ,res)=>{
     })
 })
 
-route.put("/changephoto" , (req ,res)=>{
+route.put("/changephoto" , (req ,res ,next)=>{
     // const url = req.protocol+'://'+req.get('host') ;
     // console.log(url)
     // const id = req.userData.userId;
@@ -337,6 +337,7 @@ route.put("/changephoto" , (req ,res)=>{
     //     res.send('err2'+err)
     //     console.log('ici c l erreure'+err)
     // })
+    next()
 })
 route.get("/visitor/:id", (req,res)=>{
     const id = req.params.id
