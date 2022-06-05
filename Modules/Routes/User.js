@@ -444,5 +444,7 @@ route.get("/get" ,(req ,res)=>{
         console.log(err)
     })
 })
-
+route.post("/hazem" ,(req ,res)=>{
+  res.json({ms:"hello hazem from post"})
+})
 module.exports=route;
