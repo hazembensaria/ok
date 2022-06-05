@@ -323,19 +323,20 @@ route.put("/changephoto" ,checkauth,multer({storage : storage}).single('image'),
     console.log(url)
     const id = req.userData.userId;
     const imagepath = url + '/images/'+req.file.filename;
-    console.log(imagepath)
-    Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
-        console.log('picts updates')})
-        .catch(err=>{
-            res.send('err1'+err)
-        })
-    User.updateOne({_id:id},{$set:{imagepath : imagepath}}).then(result=>{
-        console.log("res"+result)
+    res.send(imagepath)
+    // console.log(imagepath)
+    // Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
+    //     console.log('picts updates')})
+    //     .catch(err=>{
+    //         res.send('err1'+err)
+    //     })
+    // User.updateOne({_id:id},{$set:{imagepath : imagepath}}).then(result=>{
+    //     console.log("res"+result)
      
-    }).catch(err=>{
-        res.send('err2'+err)
-        console.log('ici c l erreure'+err)
-    })
+    // }).catch(err=>{
+    //     res.send('err2'+err)
+    //     console.log('ici c l erreure'+err)
+    // })
 })
 route.get("/visitor/:id", (req,res)=>{
     const id = req.params.id
