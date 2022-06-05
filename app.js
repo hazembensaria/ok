@@ -16,7 +16,8 @@ app.get("/",(req ,res)=>{
     const obj={
         name :"hazem",
         age: 21,
-        isvalid: true
+        isvalid: true,
+        DBKey: process.env.CONNECTION_URL
     }
     res.send(obj)
     console.log("helo")})
