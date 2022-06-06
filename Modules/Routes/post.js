@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
         if(isvalid){
             error = null
         }
-        cb(error, 'postImages')
+        cb(error, 'images')
     },
     filename : (req,file,cb)=>{
         const name = file.originalname.toLowerCase().split(' ').join('-')
@@ -29,7 +29,7 @@ const storage = multer.diskStorage({
 
 route.post("/add" ,checkauth,multer({storage : storage}).single('image'), (req ,res)=>{
     const url = req.protocol+'://'+req.get('host') ;
-    const imagepath = url + '/postImages/'+req.file.filename;
+    const imagepath = url + '/images/'+req.file.filename;
     const post=new Post({
         userId : req.userData.userId ,
         content : req.body.content ,
