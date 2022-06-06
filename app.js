@@ -3,8 +3,8 @@ const app=express();
 const  Connection  = require('./config/DBConnection.js');
 const userRoutes=require("./Modules/Routes/User");
 const postRoutes=require("./Modules/Routes/post");
-const jobtRoutes = require('./Modules/Routes/job');
-const likeRoutes = require('./Modules/Routes/like');
+// const jobtRoutes = require('./Modules/Routes/job');
+// const likeRoutes = require('./Modules/Routes/like');
 const bodyParser=require("body-parser");
 
 
