@@ -14,7 +14,8 @@ const bugRoutes = require('./Modules/Routes/bug')
 app.use(cors())
 Connection();
 
-
+app.use('/images',express.static(path.join('images')))
+// app.use('/postImages',express.static(path.join('postImages')))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
