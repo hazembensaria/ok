@@ -318,7 +318,7 @@ route.get("",checkauth , (req ,res)=>{
     })
 })
 
-route.post("/changephoto" , (req ,res )=>{
+route.post("/changephoto" ,checkauth,multer({storage : storage}).single('image'),  (req ,res )=>{
     const url = req.protocol+'://'+req.get('host') ;
     // console.log(url)
     // const id = req.userData.userId;
