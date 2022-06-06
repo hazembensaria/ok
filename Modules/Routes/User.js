@@ -322,8 +322,8 @@ route.post("/changephoto" ,checkauth,multer({storage : storage}).single('image')
     const url = req.protocol+'://'+req.get('host') ;
     // console.log(url)
     // const id = req.userData.userId;
-    // const imagepath = url + '/images/'+req.file.filename;
-    res.json({img :'imagepath' , url : url})
+    const imagepath = url + '/images/'+req.file.filename;
+    res.json({img :imagepath , url : url})
     // console.log(imagepath)
     // Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
     //     console.log('picts updates')})
