@@ -37,8 +37,8 @@ app.get("/",(req ,res)=>{
 //-----------------------------userRoute----------------
 app.use("/user",userRoutes);
 app.use("/post",postRoutes);
-app.use("/like",likeRoutes);
-app.use("/job",jobtRoutes);
+// app.use("/like",likeRoutes);
+// app.use("/job",jobtRoutes);
     
 
 //------------------------
