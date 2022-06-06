@@ -7,8 +7,6 @@ const bodyParser=require("body-parser");
 const jobtRoutes = require('./Modules/Routes/job');
 const likeRoutes = require('./Modules/Routes/like')
 
-Connection();
-
 //----------------------------setHeaders------------------------------------------------
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
@@ -16,6 +14,10 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Methods","GET,POST,PUT,PATCH,DELETE,OPTIONS");
     next();
 })
+
+Connection();
+
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
