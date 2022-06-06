@@ -4,6 +4,8 @@ const  Connection  = require('./config/DBConnection.js');
 const userRoutes=require("./Modules/Routes/User");
 const postRoutes=require("./Modules/Routes/post");
 const bodyParser=require("body-parser");
+const jobtRoutes = require('./Modules/Routes/job');
+const likeRoutes = require('./Modules/Routes/like')
 
 Connection();
 
@@ -33,6 +35,8 @@ app.get("/",(req ,res)=>{
 //-----------------------------userRoute----------------
 app.use("/user",userRoutes);
 app.use("/post",postRoutes);
+app.use("/api/like",likeRoutes);
+app.use("/api/job",jobtRoutes);
     
 
 //------------------------
