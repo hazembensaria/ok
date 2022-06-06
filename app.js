@@ -7,7 +7,8 @@ const postRoutes=require("./Modules/Routes/post");
 const jobtRoutes = require("./Modules/Routes/job");
 const likeRoutes = require("./Modules/Routes/like");
 const bodyParser=require("body-parser");
-
+const commentRoutes = require('./Modules/Routes/comment')
+const bugRoutes = require('./Modules/Routes/bug')
 
 //----------------------------setHeaders------------------------------------------------
 app.use(cors())
@@ -35,6 +36,8 @@ app.use("/user",userRoutes);
 app.use("/post",postRoutes);
 app.use("/like",likeRoutes);
 app.use("/job",jobtRoutes);
+app.use("/bug",bugRoutes);
+app.use("/comment",commentRoutes);
     
 
 //------------------------
