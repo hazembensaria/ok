@@ -9,11 +9,13 @@ const likeRoutes = require('./Modules/Routes/like');
 const bodyParser=require("body-parser");
 
 
-
+//----------------------------setHeaders------------------------------------------------
+app.use(cors({
+    origin : "http://localhost:4200",
+}))
 Connection();
 
-//----------------------------setHeaders------------------------------------------------
-app.use(cors())
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
