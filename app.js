@@ -4,8 +4,8 @@ const cors = require("cors")
 const  Connection  = require('./config/DBConnection.js');
 const userRoutes=require("./Modules/Routes/User");
 const postRoutes=require("./Modules/Routes/post");
-// const jobtRoutes = require('./Modules/Routes/job');
-// const likeRoutes = require('./Modules/Routes/like');
+const jobtRoutes = require('./Modules/Routes/job');
+const likeRoutes = require('./Modules/Routes/like');
 const bodyParser=require("body-parser");
 
 
@@ -33,8 +33,8 @@ app.get("/",(req ,res)=>{
 //-----------------------------userRoute----------------
 app.use("/user",userRoutes);
 app.use("/post",postRoutes);
-// app.use("/like",likeRoutes);
-// app.use("/job",jobtRoutes);
+app.use("/like",likeRoutes);
+app.use("/job",jobtRoutes);
     
 
 //------------------------
