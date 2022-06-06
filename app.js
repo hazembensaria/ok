@@ -9,6 +9,7 @@ const likeRoutes = require("./Modules/Routes/like");
 const bodyParser=require("body-parser");
 const commentRoutes = require('./Modules/Routes/comment')
 const bugRoutes = require('./Modules/Routes/bug')
+const path = require('path')
 
 //----------------------------setHeaders------------------------------------------------
 app.use(cors())
