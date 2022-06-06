@@ -23,11 +23,11 @@ const storage = multer.diskStorage({
     filename : (req,file,cb)=>{
         const name = file.originalname.toLowerCase().split(' ').join('-')
         const ext = mime_type_map[file.mimetype]
-        cb(null, name + '-' +Date.now() +'.'+ext)   
+        cb(null, name + '-' +Date.now() +'.'+ext)
     }
 })
 
-route.post("/add" ,checkauth,multer({storage : storage}).single('image'), (req ,res)=>{
+route.post("/add" ,checkauth,multer({storage : storage}).single('img'), (req ,res)=>{
     const url = req.protocol+'://'+req.get('host') ;
     const imagepath = url + '/images/'+req.file.filename;
     const post=new Post({
