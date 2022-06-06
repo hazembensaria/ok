@@ -323,7 +323,7 @@ route.post("/changephoto" , (req ,res )=>{
     // console.log(url)
     // const id = req.userData.userId;
     // const imagepath = url + '/images/'+req.file.filename;
-    res.send('imagepath')
+    res.json({img :'imagepath'})
     // console.log(imagepath)
     // Post.updateMany({userId:id} ,{$set:{userimage : imagepath}}).then(_=>{
     //     console.log('picts updates')})
